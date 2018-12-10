@@ -23,6 +23,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "../../config.h"
 
+#undef MANUFACTURER
+#define MANUFACTURER    lattis
+#undef PRODUCT
+#define PRODUCT         dactyl
+#undef DESCRIPTION
+#define DESCRIPTION     キーボード
+
 /* key matrix size     */
 /* Rows are doubled-up */
 #undef MATRIX_ROWS
