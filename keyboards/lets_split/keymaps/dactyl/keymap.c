@@ -100,21 +100,14 @@ void matrix_scan_user(void) {
     leading = false;
     leader_end();
 
-    SEQ_ONE_KEY(KC_F) {
+    SEQ_ONE_KEY(KC_E) {
       // Anything you can do in a macro.
-      SEND_STRING("QMK is awesome.");
+      SEND_STRING("stone.tickle@gmail.com");
     }
-    SEQ_TWO_KEYS(KC_D, KC_D) {
-      SEND_STRING(SS_LCTRL("a")SS_LCTRL("c"));
-    }
-    SEQ_THREE_KEYS(KC_D, KC_D, KC_S) {
-      SEND_STRING("https://start.duckduckgo.com"SS_TAP(X_ENTER));
-    }
-    SEQ_TWO_KEYS(KC_A, KC_S) {
-      register_code(KC_LGUI);
-      register_code(KC_S);
-      unregister_code(KC_S);
-      unregister_code(KC_LGUI);
+    SEQ_TWO_KEYS(KC_W, KC_W) {
+      SEND_STRING(SS_LGUI(SS_TAP(X_ENTER)));
+      SEND_STRING("cd ~/dev/rails/threat-advice/mythreatadvice/"SS_TAP(X_ENTER));
+      SEND_STRING(SS_LGUI(SS_TAP(X_ENTER))SS_LGUI(SS_TAP(X_ENTER)));
     }
   }
 }
