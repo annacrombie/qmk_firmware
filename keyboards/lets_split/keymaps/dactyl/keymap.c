@@ -7,8 +7,6 @@ extern keymap_config_t keymap_config;
 #define _NAVI 2
 #define _FUNC 3
 
-//qk_tap_dance_action_t tap_dance_actions[] = {};
-
 enum custom_keycodes {
   VIM_WH = SAFE_RANGE,
   VIM_WJ,
