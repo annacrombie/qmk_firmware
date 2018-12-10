@@ -1,12 +1,4 @@
 #include "lets_split.h"
-//#include "action_layer.h"
-//#include "eeconfig.h"
-//#include "tap_dance.h"
-//#include "zer09.h"
-
-#ifdef LAYOUT_ortho_4x12
-#undef LAYOUT_ortho_4x12
-#endif
 
 #ifdef LAYOUT
 #undef LAYOUT
