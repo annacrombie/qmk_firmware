@@ -36,15 +36,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
       KC_MINS,  KC_0,     KC_8,     KC_6,     KC_4,     KC_2,               KC_LGUI,
       KC_LBRC,  KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,               KC_LALT,
-      KC_TAB,   KC_A,     KC_R,     KC_S,     KC_T,     KC_G,               KC_LSPO,
-      KC_GRV,   KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,               KC_LCTL,
+      KC_TAB,   KC_A,     KC_R,     KC_S,     KC_T,     KC_G,               KC_LCTL,
+      KC_GRV,   KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,               KC_LSPO,
       KC_QUES,  MO(_FUNC),MO(_NAVI),KC_LEFT,  KC_RIGHT,           KC_LGUI,  KC_ENTER,
 
-      NAVLEAD,            KC_1,     KC_3,     KC_5,     KC_7,     KC_9,     KC_EQL,
-      SFTGUI,             KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_RBRC,
-      KC_RSPC,            KC_K,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,
-      ALTESC,             KC_M,     KC_H,     KC_COMM,  KC_DOT,   KC_SLASH, KC_BSLS,
-      KC_SPC,   KC_BSPC,            KC_DOWN,  KC_UP,    KC_RGUI,  KC_QUES,  KC_QUES
+      MO(_NAVI),          KC_1,     KC_3,     KC_5,     KC_7,     KC_9,     KC_EQL,
+      ALTESC,             KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_RBRC,
+      KC_RCTL,            KC_K,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,
+      KC_RSPC,            KC_M,     KC_H,     KC_COMM,  KC_DOT,   KC_SLASH, KC_BSLS,
+      KC_SPC,   KC_BSPC,  KC_DOWN,  KC_UP,    KC_RGUI,  KC_QUES,  KC_QUES
 ),
 [_FUNC] = LAYOUT(
       _______,  _______,  KC_F8,    KC_F6,    KC_F4,    KC_F2,             _______,
