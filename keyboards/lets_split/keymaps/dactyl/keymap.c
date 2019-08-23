@@ -9,17 +9,6 @@ extern keymap_config_t keymap_config;
 #define _FUNC 3
 #define _FNC2 4
 
-enum custom_keycodes {
-  VIM_WH = SAFE_RANGE,
-  VIM_WJ,
-  VIM_WK,
-  VIM_WL,
-};
-
-#define NAVLEAD LT(_NAVI, KC_LEAD)
-#define SFTGUI  RGUI(KC_RSFT)
-#define ALTESC  RALT_T(KC_ESC)
-
 /*    Blank template
       _______,  _______,  _______,  _______,  _______,  _______,            _______,
       _______,  _______,  _______,  _______,  _______,  _______,            _______,
@@ -88,43 +77,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______,  _______,            KC_PGDN,  KC_PGUP,  _______,  _______,  _______
 )
 };
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  char key[2] = " ";
-  if (record->event.pressed) {
-    switch (keycode) {
-      case VIM_WH:
-        key[0] = 'h'; goto string_nav;
-      case VIM_WJ:
-        key[0] = 'j'; goto string_nav;
-      case VIM_WK:
-        key[0] = 'k'; goto string_nav;
-      case VIM_WL:
-        key[0] = 'l';
-        string_nav:
-        SEND_STRING(SS_LCTRL("w"));
-        send_string(key);
-        break;
-    }
-  }
-  return true;
-}
-
-LEADER_EXTERNS();
-
-void matrix_scan_user(void) {
-  LEADER_DICTIONARY() {
-    leading = false;
-    leader_end();
-
-    SEQ_ONE_KEY(KC_E) {
-      // Anything you can do in a macro.
-      SEND_STRING("stone.tickle@gmail.com");
-    }
-    SEQ_TWO_KEYS(KC_W, KC_W) {
-      SEND_STRING(SS_LGUI(SS_TAP(X_ENTER)));
-      SEND_STRING("cd ~/dev/rails/threat-advice/mythreatadvice/"SS_TAP(X_ENTER));
-      SEND_STRING(SS_LGUI(SS_TAP(X_ENTER))SS_LGUI(SS_TAP(X_ENTER)));
-    }
-  }
-}
