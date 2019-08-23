@@ -1,3 +1,4 @@
+/* vim: set colorcolumn=85 */
 #include QMK_KEYBOARD_H
 #include "keymap.h"
 #include "config.h"
