@@ -77,3 +77,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_______,  _______,            KC_PGDN,  KC_PGUP,  _______,  _______,  _______
 		)
 };
+
+uint32_t layer_state_set_user(uint32_t state)
+{
+	uprintf("new_layer %d\n", biton32(state));
+
+	return state;
+}
