@@ -3,18 +3,17 @@
 #include "config.h"
 
 extern keymap_config_t keymap_config;
-
 #define _BASE 0
 #define _NAVI 2
 #define _FUNC 3
 
-qk_tap_dance_action_t tap_dance_actions[] = {};
+//qk_tap_dance_action_t tap_dance_actions[] = {};
 
 enum custom_keycodes {
   VIM_WH = SAFE_RANGE,
-  VIM_WJ = SAFE_RANGE,
-  VIM_WK = SAFE_RANGE,
-  VIM_WL = SAFE_RANGE
+  VIM_WJ,
+  VIM_WK,
+  VIM_WL,
 };
 
 /*    Blank template
@@ -57,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______,            _______,  _______,  _______,  _______,  _______, _______,
       _______,            _______,  _______,  _______,  _______,  _______, _______,
       _______,  _______,            _______,  _______,  _______,  _______, _______
-)
+),
 [_NAVI] = LAYOUT(
       _______,  _______,  _______,  _______,  _______,  _______,            _______,
       _______,  _______,  _______,  _______,  _______,  _______,            _______,
@@ -78,18 +77,44 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch (keycode) {
       case VIM_WH:
-        key = "h"; goto string_nav;
+        key[0] = 'h'; goto string_nav;
       case VIM_WJ:
-        key = "j"; goto string_nav;
+        key[0] = 'j'; goto string_nav;
       case VIM_WK:
-        key = "k"; goto string_nav;
+        key[0] = 'k'; goto string_nav;
       case VIM_WL:
-        key = "l";
+        key[0] = 'l';
         string_nav:
-        SEND_STRING(SS(LCTRL("w")keycode);
+        SEND_STRING(SS_LCTRL("w"));
         send_string(key);
         break;
     }
   }
   return true;
+}
+
+LEADER_EXTERNS();
+
+void matrix_scan_user(void) {
+  LEADER_DICTIONARY() {
+    leading = false;
+    leader_end();
+
+    SEQ_ONE_KEY(KC_F) {
+      // Anything you can do in a macro.
+      SEND_STRING("QMK is awesome.");
+    }
+    SEQ_TWO_KEYS(KC_D, KC_D) {
+      SEND_STRING(SS_LCTRL("a")SS_LCTRL("c"));
+    }
+    SEQ_THREE_KEYS(KC_D, KC_D, KC_S) {
+      SEND_STRING("https://start.duckduckgo.com"SS_TAP(X_ENTER));
+    }
+    SEQ_TWO_KEYS(KC_A, KC_S) {
+      register_code(KC_LGUI);
+      register_code(KC_S);
+      unregister_code(KC_S);
+      unregister_code(KC_LGUI);
+    }
+  }
 }
