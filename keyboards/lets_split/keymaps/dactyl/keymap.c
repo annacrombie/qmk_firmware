@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_______,  _______,  _______,  _______,  _______,  _______,            MO(_FNC1),
 		_______,  KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,               KC_LALT,
 		_______,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,               KC_LGUI,
-		_______,  KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,               KC_LCTL,
+		_______,  KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,               KC_LSFT,
 		_______,  KC_LCTL,  _______,  KC_LEFT,  KC_RIGHT,           KC_TAB,   KC_ENTER,
 
 		MO(_SYM1),          _______,  _______,  _______,  _______,  _______,  _______,
@@ -64,7 +64,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		),
 };
 
-uint32_t layer_state_set_user(uint32_t state)
+uint32_t
+layer_state_set_user(uint32_t state)
 {
 	uprintf("new_layer %d\n", biton32(state));
 
